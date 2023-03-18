@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "RANG2";
+  src: local("RANG2"), url("./fonts/RANG2.otf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Moglan";
+  src: local("Moglan"), url("./fonts/Moglan.otf") format("truetype");
+  font-weight: bold;
+}
+
 body {
   background: black;
 }

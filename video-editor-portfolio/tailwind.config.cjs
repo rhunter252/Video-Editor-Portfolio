@@ -7,6 +7,10 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--gradient-color-stops))",
       },
     },
+    fontFamily: {
+      rang: ["RANG2", "cursive"],
+      moglan: ["Moglan", "sans-serif"],
+    },
   },
   plugins: [],
 };

@@ -83,6 +83,7 @@ const NavbarBgAnim = {
 const Navbar = () => {
   const { setBackground } = useBackground();
   const [navOpen, setNavOpen] = useState(false);
+  const [profile, setProfile] = useState(false);
 
   return (
     <>
@@ -94,8 +95,11 @@ const Navbar = () => {
         className="fixed z-20 top-0 left-0 w-full flex justify-between items-center px-8 select-none"
       >
         <div className="logo">
-          <Link to="/" className="text-4xl italic font-semibold text-slate-400">
-            A
+          <Link
+            to="/"
+            className="text-xl md:text-2xl italic font-rang text-slate-100 uppercase"
+          >
+            frances d.
           </Link>
         </div>
         <ul
@@ -140,11 +144,14 @@ const Navbar = () => {
             className="mobile hidden max-md:flex"
             onClick={() => setNavOpen(true)}
           >
-            <FaBars className="text-slate-100 text-2xl transition-all ease-in-out delay-200 hover:text-slate-400 focus:text-slate-400 max-md:text-slate-400  max-md:text-4xl" />
+            <FaBars className="text-slate-100 text-xl md:text-2xl transition-all ease-in-out delay-200 hover:text-slate-400 focus:text-slate-400" />
           </button>
 
           <button className="more flex justify-center self-center">
-            <HiDotsHorizontal className="text-slate-500 text-2xl transition-all ease-in-out delay-200 hover:text-slate-400 focus:text-slate-400 max-md:text-slate-400  max-md:text-4xl" />
+            <HiDotsHorizontal
+              className="text-slate-100 text-xl md:text-2xl  transition-all ease-in-out delay-200 hover:text-slate-400 focus:text-slate-400"
+              onClick={() => setProfile(true)}
+            />
           </button>
         </ul>
       </motion.nav>
@@ -222,7 +229,7 @@ const Navbar = () => {
             </motion.nav>
 
             <motion.div
-              className="mobileNavBg fixed top-0 left-0 w-full h-screen bg-black z-40 hidden max-md:block"
+              className="mobileNavBg fixed top-0 left-0 w-full h-screen bg-white z-40 hidden max-md:block"
               variants={NavbarBgAnim}
               onClick={() => setNavOpen(false)}
               initial="hidden"
@@ -231,7 +238,23 @@ const Navbar = () => {
             />
           </>
         )}
-        <Profile />
+        {profile && (
+          <motion.div
+            variants={NavbarAnim}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            onPanEnd={(e, info) => {
+              if (info.offset.x > 0) {
+                setProfile(false);
+                setBackground(true);
+              }
+            }}
+            className="profile fixed z-[99] top-0 right-0 touch-none"
+          >
+            <Profile setProfile={setProfile} />
+          </motion.div>
+        )}
       </AnimatePresence>
     </>
   );
