@@ -91,7 +91,6 @@ const Navbar = () => {
         variants={opacityAnim}
         initial="hidden"
         animate="visible"
-        exit="hidden"
         className="fixed z-20 top-0 left-0 w-full flex justify-between items-center px-8 select-none"
       >
         <div className="logo">
@@ -165,7 +164,6 @@ const Navbar = () => {
               variants={NavbarAnim}
               initial="hidden"
               animate="visible"
-              exit="hidden"
             >
               <button
                 className="close cursor-pointer flex justify-end text-[2.2rem] self-end mr-4 bg-transparent"
@@ -234,7 +232,6 @@ const Navbar = () => {
               onClick={() => setNavOpen(false)}
               initial="hidden"
               animate="visible"
-              exit="hidden"
             />
           </>
         )}
@@ -243,7 +240,6 @@ const Navbar = () => {
             variants={NavbarAnim}
             initial="hidden"
             animate="visible"
-            exit="hidden"
             onPanEnd={(e, info) => {
               if (info.offset.x > 0) {
                 setProfile(false);

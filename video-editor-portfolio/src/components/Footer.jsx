@@ -29,7 +29,6 @@ const Footer = () => {
       variants={opacityAnim}
       initial="hidden"
       animate="visible"
-      exit="hidden"
     >
       <ul className="text-xl text-slate-100 flex gap-3">
         <li>

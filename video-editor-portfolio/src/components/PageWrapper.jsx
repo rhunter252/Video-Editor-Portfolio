@@ -10,9 +10,7 @@ const PageWrapper = ({ children }) => {
       <BackgroundContext>
         <Navbar />
         <GradientCircle />
-        <div className="page relative grow w-full 2xl:max-w-2xl 2xl:mx-auto">
-          {children}
-        </div>
+        <div className="page relative grow w-screen mx-auto">{children}</div>
       </BackgroundContext>
       <Footer />
     </div>
